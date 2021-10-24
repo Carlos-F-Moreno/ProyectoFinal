@@ -1,0 +1,12 @@
+<div class="cartilla--de--cursos">
+    <h2>Cursos</h2>
+    <div class="botonera">
+        <ul>
+            {{#each divisiones}}
+                <li class="botones-de-cursos">
+                    <a href="/listaalumnos?curso={{this.divisiones}}"><button>{{this.divisiones}}</button></a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

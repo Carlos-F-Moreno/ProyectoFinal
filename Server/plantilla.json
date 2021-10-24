@@ -1,0 +1,80 @@
+[
+        {
+            "division": "6°1",
+            "id": 1,
+            "alumnos": [
+                {
+                    "nombre": "Fernando",
+                    "dni": 43290330
+                },
+                {
+                    "nombre": "Agustina",
+                    "dni": 42167429
+                },
+                {
+                    "nombre": "Leonardo",
+                    "dni": 42330290
+                },
+                {
+                    "nombre": "nombregenerico2",
+                    "dni": 4122222
+                },
+                {
+                    "nombre": "nombregenerico3",
+                    "dni": 4133333
+                }
+            ]
+        },
+        {
+            "division": "6°2",
+            "id": 1,
+            "alumnos": [
+                {
+                    "nombre": "Fernando",
+                    "dni": 43290330
+                },
+                {
+                    "nombre": "Agustina",
+                    "dni": 42167429
+                },
+                {
+                    "nombre": "Leonardo",
+                    "dni": 42330290
+                },
+                {
+                    "nombre": "nombregenerico2",
+                    "dni": 4122222
+                },
+                {
+                    "nombre": "nombregenerico3",
+                    "dni": 4133333
+                }
+            ]
+        },
+        {
+            "division": "6°3",
+            "id": 1,
+            "alumnos": [
+                {
+                    "nombre": "Fernando",
+                    "dni": 43290330
+                },
+                {
+                    "nombre": "Agustina",
+                    "dni": 42167429
+                },
+                {
+                    "nombre": "Leonardo",
+                    "dni": 42330290
+                },
+                {
+                    "nombre": "nombregenerico2",
+                    "dni": 4122222
+                },
+                {
+                    "nombre": "nombregenerico3",
+                    "dni": 4133333
+                }
+            ]
+        }
+    ]
