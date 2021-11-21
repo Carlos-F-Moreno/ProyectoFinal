@@ -9,7 +9,7 @@ function traerCursos(crErr, cdDatos){
         if(err){
             crErr(err);
             return; 
-        }
+        };
         const cursosColecion = conn.db(dbNombre).collection(nombreDeColeccion);
         cursosColecion.find().toArray(function (colErr,arrayCursos){
             if(err){
@@ -19,15 +19,15 @@ function traerCursos(crErr, cdDatos){
             cdDatos(arrayCursos);
         });
     });
-}
+};
 function traerAlumnos(division, cErr, cdDatos, ){
     mongodb.MongoClient.connect(connURL,connOptions,function(err, conn){
         if(err){
             cErr(err);
             return;
         }
-        const coleccionAlumnos = conn.db(dbNombre).collection(nombreDeColeccion);
-        coleccionAlumnos.findOne({division: division}, function(colErr, arrayAlumnos){
+        const cursosColeccion = conn.db(dbNombre).collection(nombreDeColeccion);
+        cursosColeccion.findOne({division: division}, function(colErr, arrayAlumnos){
             if(err){
                 colErr(err);
                 return;
