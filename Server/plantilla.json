@@ -1,80 +1,170 @@
 [
-        {
-            "division": "6°1",
-            "id": 1,
-            "alumnos": [
-                {
-                    "nombre": "Fernando",
-                    "dni": 43290330
-                },
-                {
-                    "nombre": "Agustina",
-                    "dni": 42167429
-                },
-                {
-                    "nombre": "Leonardo",
-                    "dni": 42330290
-                },
-                {
-                    "nombre": "nombregenerico2",
-                    "dni": 4122222
-                },
-                {
-                    "nombre": "nombregenerico3",
-                    "dni": 4133333
-                }
-            ]
-        },
-        {
-            "division": "6°2",
-            "id": 1,
-            "alumnos": [
-                {
-                    "nombre": "Fernando",
-                    "dni": 43290330
-                },
-                {
-                    "nombre": "Agustina",
-                    "dni": 42167429
-                },
-                {
-                    "nombre": "Leonardo",
-                    "dni": 42330290
-                },
-                {
-                    "nombre": "nombregenerico2",
-                    "dni": 4122222
-                },
-                {
-                    "nombre": "nombregenerico3",
-                    "dni": 4133333
-                }
-            ]
-        },
-        {
-            "division": "6°3",
-            "id": 1,
-            "alumnos": [
-                {
-                    "nombre": "Fernando",
-                    "dni": 43290330
-                },
-                {
-                    "nombre": "Agustina",
-                    "dni": 42167429
-                },
-                {
-                    "nombre": "Leonardo",
-                    "dni": 42330290
-                },
-                {
-                    "nombre": "nombregenerico2",
-                    "dni": 4122222
-                },
-                {
-                    "nombre": "nombregenerico3",
-                    "dni": 4133333
-                }
-            ]
-        }
-    ]
+    {
+        "Division": "1°1",
+        "Turno": "Mañana",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "1°2",
+        "Turno": "Mañana",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "1°3",
+        "Turno": "Tarde",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "1°4",
+        "Turno": "Tarde",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "2°1",
+        "Turno": "Mañana",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "2°2",
+        "Turno": "Mañana",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "2°3",
+        "Turno": "Tarde",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "2°4",
+        "Turno": "Tarde",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "3°1",
+        "Turno": "Mañana",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "3°2",
+        "Turno": "Mañana",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "3°3",
+        "Turno": "Tarde",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "3°4",
+        "Turno": "Tarde",
+        "Especialidad": "Ciclo Basico",
+        "Materias": []
+    },
+    {
+        "Division": "4°1",
+        "Turno": "Mañana",
+        "Especialidad": "Informatica",
+        "Materias": []
+    },
+    {
+        "Division": "4°2",
+        "Turno": "Mañana",
+        "Especialidad": "Informatica",
+        "Materias": []
+    },
+    {
+        "Division": "4°3",
+        "Turno": "Mañana",
+        "Especialidad": "Construccion",
+        "Materias": []
+    },
+    {
+        "Division": "4°4",
+        "Turno": "Mañana",
+        "Especialidad": "Electromecanica",
+        "Materias": []
+    },
+    {
+        "Division": "5°1",
+        "Turno": "Mañana",
+        "Especialidad": "Informatica",
+        "Materias": []
+    },
+    {
+        "Division": "5°2",
+        "Turno": "Tarde",
+        "Especialidad": "Informatica",
+        "Materias": []
+    },
+    {
+        "Division": "5°3",
+        "Turno": "Tarde",
+        "Especialidad": "Construccion",
+        "Materias": []
+    },
+    {
+        "Division": "5°4",
+        "Turno": "Tarde",
+        "Especialidad": "Electromecanica",
+        "Materias": []
+    },
+    {
+        "Division": "6°1",
+        "Turno": "Mañana",
+        "Especialidad": "Informatica",
+        "Materias": []
+    },
+    {
+        "Division": "6°2",
+        "Turno": "Tarde",
+        "Especialidad": "Informatica",
+        "Materias": []
+    },
+    {
+        "Division": "6°3",
+        "Turno": "Tarde",
+        "Especialidad": "Construccion",
+        "Materias": []
+    },
+    {
+        "Division": "6°4",
+        "Turno": "Tarde",
+        "Especialidad": "Electromecanica",
+        "Materias": []
+    },
+    {
+        "Division": "7°2",
+        "Turno": "Tarde",
+        "Especialidad": "Informatica",
+        "Materias": []
+    },
+    {
+        "Division": "7°1",
+        "Turno": "Mañana",
+        "Especialidad": "Informatica",
+        "Materias": []
+    },
+    {
+        "Division": "7°3",
+        "Turno": "Tarde",
+        "Especialidad": "Construccion",
+        "Materias": []
+    },
+    {
+        "Division": "7°4",
+        "Turno": "Tarde",
+        "Especialidad": "Electromecanica",
+        "Materias": []
+    }
+]

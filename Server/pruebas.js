@@ -2,26 +2,31 @@ const mongodb = require("mongodb");
 const connURL = "mongodb+srv://Carlos:7mogMBfRA3mqiSTK@cluster0.vw36v.mongodb.net/";
 const connOptions = { useUnifiedTopology: true };
 const dbNombre = "ProyectoFinal";
-const nombreDeColeccion = "Cursos";
+const ColeccionDeCursos = "Cursos";
+const coleccionDeAlumnos = "Alumnos";
 
-function insertarAlumnos(alumno, aErr) {
-    mongodb.MongoClient.connect(connURL, connOptions, function (err, conn) {
-        if (err) {
-            aErr(err);
+function traerAlumnos(divison, cErr, cdDatos, ){
+    mongodb.MongoClient.connect(connURL,connOptions,function(err, conn){
+        if(err){
+            cErr(err);
             return;
-        };
-        const cursosColecion = conn.db(dbNombre).collection(nombreDeColeccion);
-
-        cursosColecion.updateOne(
-            { division: "6°1" },
-            {
-                $push: {
-                    alumnos:{
-                        nombre: alumno,
-                        dni: "12345"
-                    },
-                }
-            });
+        }
+        const cursosColeccion = conn.db(dbNombre).collection(coleccionDeAlumnos);
+        cursosColeccion.find({division: divison}).toArray(function(colErr, arrayAlumnos){
+            if(err){
+                colErr(err);
+                return;
+            }
+            cdDatos(arrayAlumnos);
+            conn.close();
+        })
     })
 };
-insertarAlumnos("Manteca4");
+traerAlumnos("6°2",function(err){
+    if(err){
+        console.log(err);
+    }
+},
+function(Datos){
+    console.log(Datos);
+});

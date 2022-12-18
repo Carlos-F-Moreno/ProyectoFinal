@@ -1,8 +1,8 @@
 <ul>
 {{#each alumnos}}
     <li>
-        <a>{{this.alumnos}}</a>
-        <button>Presente</button>
+        <p>{{this.apellido}} <span>{{this.nombre}}</span></p>
     </li>
 {{/each}}
 </ul>
+<a href="/insertarAlumnos"><button>Agregar Alumno</button></a>
