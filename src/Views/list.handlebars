@@ -1,0 +1,33 @@
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Numero</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      {{#if (eq rol 'profesor')}}
+      <th scope="col">Asistencia</th>
+      {{/if}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#if (eq rol 'profesor')}}
+    {{#each listStudents}}
+    <tr>
+      <th scope="row" class="asist">{{@index}}</th>
+      <th>{{this.name}}</th>
+      <th>{{this.lastname}}</th>
+      <th><button class="btn btn-primary">asistencia</button></th>
+    </tr>
+    {{/each}}
+    {{else}}
+    {{#each listStudents}}
+    <tr>
+      <th scope="row" class="asist">{{@index}}</th>
+      <th>{{this.name}}</th>
+      <th>{{this.lastname}}</th>
+    </tr>
+    {{/each}}
+    {{/if}}
+  </tbody>
+</table>
+<a href="/students/create">Agregar Alumno</a>
