@@ -4,18 +4,17 @@
       <form action="/login" method="post">
         <div class="form-group">
           <label for="DNI">DNI:</label>
-          <input type="number" class="form-control" id="DNI" min="0" placeholder="Ingresa tu DNI"/>
-
+          <input type="number" class="form-control" id="DNI" min="0" placeholder="Enter your DNI" />
         </div>
         <div class="form-group my-3">
-          <label for="password">Contraseña:</label>
-          <input type="password" class="form-control" id="password" placeholder="Ingresa tu Contraseña">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter your Password">
         </div>
         <div class="form-group">
           <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
         </div>
         <div class="text-center pt-2 ">
-          <a href="/passwordrecovery">Recuperar contraseña</a>
+          <a href="/auth/recovery">Recover password</a>
         </div>
       </form>
     </div>

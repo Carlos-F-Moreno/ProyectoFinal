@@ -1,31 +1,35 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model, mongo } = require('mongoose')
 
-const StudentsSchema = new Schema({
-  lastname: {
-    type: String,
-    required: true
-  },
-  attendance: {
-    type: Map,
-    of: String,
-    default: {}
-  },
-  rol: {
-    type: String,
-    required: true,
-    default: 'student'
-  },
-  course: {
-    type: String,
-    required: true
-  },
-  dni: {
-    type: Number,
-    required: true
-  },
-  name: {
-    type: String,
-    required: true
-  }
-})
+const StudentsSchema = new Schema(
+  {
+    attendance: {
+      type: Map,
+      of: String,
+      default: {}
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    course: {
+      type: String,
+      required: true
+    },
+    profileId: {
+      type: mongo.ObjectId
+    },
+    last_name: {
+      type: String,
+      required: true
+    },
+    year: {
+      type: Date,
+      required: true
+    },
+    subjects: {
+      type: [String],
+      default: ['Math', 'Science', 'langue']
+    }
+
+  })
 module.exports = model('Students', StudentsSchema)

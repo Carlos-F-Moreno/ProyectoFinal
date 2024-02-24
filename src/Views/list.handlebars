@@ -1,33 +1,34 @@
+<h1>Hi {{name}}</h1>
 <table class="table">
   <thead class="table-dark">
     <tr>
-      <th scope="col">Numero</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      {{#if (eq rol 'profesor')}}
-      <th scope="col">Asistencia</th>
+      <th scope="col">Number</th>
+      <th scope="col">Name</th>
+      <th scope="col">Last name</th>
+      {{#if (eq rol 'teacher')}}
+      <th scope="col">Attendance</th>
       {{/if}}
     </tr>
   </thead>
   <tbody>
-    {{#if (eq rol 'profesor')}}
+    {{#if (eq rol 'teacher')}}
     {{#each listStudents}}
     <tr>
-      <th scope="row" class="asist">{{@index}}</th>
+      <th scope="row">{{@index}}</th>
       <th>{{this.name}}</th>
-      <th>{{this.lastname}}</th>
-      <th><button class="btn btn-primary">asistencia</button></th>
+      <th>{{this.last_name}}</th>
+      <th><button class="btn btn-primary">Attendance</button></th>
     </tr>
     {{/each}}
     {{else}}
     {{#each listStudents}}
     <tr>
-      <th scope="row" class="asist">{{@index}}</th>
+      <th scope="row">{{@index}}</th>
       <th>{{this.name}}</th>
-      <th>{{this.lastname}}</th>
+      <th>{{this.last_name}}</th>
     </tr>
     {{/each}}
     {{/if}}
   </tbody>
 </table>
-<a href="/students/create">Agregar Alumno</a>
+<a class="btn btn-danger" href="/students/create">Add Student</a>

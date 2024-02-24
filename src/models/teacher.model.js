@@ -1,26 +1,27 @@
 const mongoose = require('mongoose')
 const { Schema, model } = mongoose
 
-const ProfesorModel = new Schema({
-  password: {
-    type: String,
-    required: true
-  },
+const TeacherModel = new Schema({
   rol: {
     type: String,
     required: true,
-    default: 'profesor'
+    default: 'Teacher'
   },
   name: {
     type: String,
     required: true
   },
-  dni: {
-    type: Number,
+  last_name: {
+    type: String,
     required: true
   },
   courses: {
     type: Array[String]
+  },
+  subjects: {
+    type: [String],
+    required: true,
+    default: []
   }
 })
-module.exports = model('Profesor', ProfesorModel)
+module.exports = model('Teacher', TeacherModel)

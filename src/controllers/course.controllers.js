@@ -22,7 +22,7 @@ const getCourse = async (req, res) => {
   try {
     const course = req.params.course
     const listStudents = await coursesServices.getCourse(course)
-    res.render('list', { listStudents, rol: 'profesor' })
+    res.render('list', { listStudents, name: req.session.user })
   } catch (error) {
     console.log(error)
   }
