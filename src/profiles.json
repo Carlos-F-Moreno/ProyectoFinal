@@ -1,0 +1,14 @@
+{
+  "profile": 
+    {
+      "name": "Fernando",
+      "last_name": "Moreno",
+      "course": "6°2",
+      "subjects": ["Mathematics", "language", "History"],
+      "state": "studying",
+      "year_of_entry": 2012,
+      "date_of_birth": "26/02/2001",
+      "attendance": {"26/04/26":"Active"},
+      "shift":"afternoon"
+    }
+}

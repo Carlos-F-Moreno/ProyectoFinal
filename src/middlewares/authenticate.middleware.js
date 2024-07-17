@@ -1,5 +1,14 @@
-function isAuthenticated (req, res, next) {
-  if (req.session.user) next()
-  else res.json('you are not logged in')
+const checkAuthenticated = (req, res, next) => {
+  console.log('Checking authentication...')
+  if (req.isAuthenticated()) {
+    return next()
+  }
+  res.redirect('/login')
 }
-module.exports = { isAuthenticated }
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
+  }
+  next()
+}
+module.exports = { checkAuthenticated, checkNotAuthenticated }

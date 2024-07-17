@@ -32,3 +32,15 @@
   </tbody>
 </table>
 <a class="btn btn-danger" href="/students/create">Add Student</a>
+{{#if (eq rol 'teacher')}}
+  <div
+    class="alert alert-primary"
+    role="alert"
+  >
+    <h4 class="alert-heading">Alert Heading</h4>
+    <p>Alert Content</p>
+    <hr />
+    <p class="mb-0">Alert Description</p>
+  </div>
+  
+{{/if}}

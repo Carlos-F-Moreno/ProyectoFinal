@@ -1,5 +1,5 @@
-const Course = require('../models/courses.model.js')
-const Student = require('../models/students.model.js')
+const Course = require('../models/course.model.js')
+const Student = require('../models/student.model.js')
 const parserMongoObjects = require('../utils/parser_mongo_objects.js')
 
 const getCoursesDivisions = async () => {
@@ -18,10 +18,10 @@ const createCourse = async () => {
     console.log(error)
   }
 }
-// Refactorizar
+// Refactor
 const getCourse = async (course) => {
   try {
-    const students = await Student.find({ course }, { _id: 0, name: 1, lastname: 1 }).sort({ name: 1 })
+    const students = await Student.find({ course }, { _id: 1, name: 1, last_name: 1 }).sort({ name: 1 })
     const studentsParse = parserMongoObjects(students)
     return studentsParse
   } catch (error) {

@@ -1,29 +1,37 @@
-const studentService = require('../services/students.service.js')
+const studentService = require('../services/student.service.js')
 
-const getStudent = async (req, res) => {
+const renderProfile = async (req, res) => {
   try {
     const id = req.body.id
     const student = studentService.getStudent(id)
-    res.json({ student, message: 'alumno pedido' })
+    res.render('profile', {student})
   } catch (error) {
     res.json('error en controller')
   }
 }
-const createStudent = async (req, res) => {
+const create = async (req, res) => {
   try {
     const student = studentService.createStudent(req.body)
-    res.json({ student })
+    res.redirect('/create')
   } catch (error) {
     res.json('error in controller')
   }
 }
-const checkAsist = async (req, res) => {
+const checkAttendance = async (req, res) => {
   try {
     const list = req.body
-    const check = studentService.checkAsist(list)
+    const check = studentService.checkAttendance(list)
     res.json({ check })
   } catch (error) {
     res.json('error in controller')
   }
 }
-module.exports = { getStudent, createStudent, checkAsist }
+const update = async (req, res) => {
+  try {
+    const student = studentService.updateStudent(req.body)
+    res.redirect('/profile')
+  } catch (error) {
+    res.json('error in controller')
+  }
+}
+module.exports = { renderProfile, create, checkAttendance, update }

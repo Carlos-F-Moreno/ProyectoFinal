@@ -7,8 +7,8 @@ mongoose
   })
   .catch((error) => console.log(error))
 dbConection.on('open', (_) => {
-  console.log('La base de datos se conecto')
+  console.log('The database was connected')
 })
 dbConection.on('error', (error) => {
-  console.log(error)
+  console.log('There was a mistake', error)
 })

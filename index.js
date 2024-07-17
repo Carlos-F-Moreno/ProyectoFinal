@@ -1,69 +1,67 @@
 require('dotenv').config()
 require('./src/config/db.config.js')
+require('./src/config/passport.config.js')
+
 const express = require('express')
-const app = express()
 const path = require('path')
-const exphbs = require('express-handlebars')
 const PORT = process.env.PORT || 3000
-const SECRET = process.env.SECRET
-const DB_NAME = process.env.DB_NAME
+const SESSION = require('./src/config/session.config.js')
+const HBS = require('./src/config/handlebars.config.js')
 const indexRoutes = require('./src/routes/index.routes.js')
-
 const helmet = require('helmet')
+const logger = require('morgan')
+const favicon = require('serve-favicon')
+const cookieParser = require('cookie-parser')
+const app = express()
+const flash = require('connect-flash')
+const passport = require('passport')
+const methodOverride = require('method-override')
 
-const morgan = require('morgan')
+//over rider
+app.use(methodOverride('_method'))
 
-const session = require('express-session')
-const MongoDBStore = require('connect-mongodb-session')(session)
+// middleware
+app.use(flash())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, './public')))
 
-const store = new MongoDBStore({
-  databaseName: DB_NAME,
-  collection: 'mySessions'
-})
-store.on('error', (error) => {
-  console.log(error)
-})
-app.use(session({
-  secret: SECRET,
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-  },
-  store,
-  resave: true,
-  saveUninitialized: true
-}))
-// Handlebars config
-const hbs = exphbs.create({
-  defaultLayout: 'main',
-  layoutsDir: 'src/Views/layouts',
-  helpers: {
-    eq: function (a, b) { return a === b }
-  }
-}
-)
-app.engine('handlebars', hbs.engine)
+//Security
+app.use(helmet())
+
+// logger
+app.use(logger('tiny'))
+
+//cookie-parser
+app.use(cookieParser('secret'))
+
+//Session
+app.use(SESSION)
+
+//passport
+app.use(passport.initialize())
+app.use(passport.session())
+
+//handlebars
+app.engine('handlebars', HBS.engine)
 app.set('view engine', 'handlebars')
 app.set('views', path.join(__dirname, 'src/Views'))
-app.use(express.static(path.join(__dirname, './public')))
-// middleware
-app.use(express.urlencoded({ extended: true }))
-app.use(helmet())
-// logger
-app.use(morgan('tiny'))
 
+//global variables
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.error_msg = req.flash('error_msg')
+  res.locals.error = req.flash('error')
+  next()
+})
+//favicon
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')))
+
+//routes
 app.use(indexRoutes)
 
-app.get('/session', (req, res) => {
-  req.session.user = req.query.user
-  req.session.cont = req.session.cont ? ++req.session.cont : 1
-  console.log(req.session.id)
-  res.send(`Hello ${req.session.user} your visit on ${req.session.cont}`)
-})
-app.get('/destroy', (req, res) => {
-  if (req.session) {
-    req.session.destroy(req.session.id)
-  }
-  res.send('session destroy')
+app.use('*', (req, res) => {
+  res.send('not search')
 })
 app.listen(PORT, () => {
   console.log(`The server is running on the port ${PORT}`)
