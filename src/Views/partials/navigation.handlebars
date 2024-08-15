@@ -11,19 +11,23 @@
       <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
       <li><a href="/courses" class="nav-link px-2">Courses</a></li>
     </ul>
+  
+  </h1>
+    {{#if (dni user)}}
+      <h2>{{dni user}}</h2>
+    {{/if}}
+    {{#if status}}
+    <form action="/logout" method="post">
+      <button class="btn btn-outline-primary" type="submit">
+        Log out
+      </button>
 
-    {{#if user}}
-
-    {{else }}
+    </form>
+    {{else}}
     <div class="col-md-3 text-end">
       <a href="/login" class="btn btn-outline-primary me-2">Login</a>
       <a href="/register" class="btn btn-primary">Sign-up</a>
-      <form action="/logout" method="post">
-        <button class="btn btn-outline-primary" type="submit">
-          Log out
-        </button>
 
-      </form>
     </div>
     {{/if}}
 

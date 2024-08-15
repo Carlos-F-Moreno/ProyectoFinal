@@ -2,21 +2,20 @@ const passport = require('passport')
 const serviceAuth = require('../services/auth.service.js')
 
 const login = passport.authenticate('local', {
-  failureRedirect: '/login',
   successRedirect: '/',
+  failureRedirect: '/login',
   failureFlash: true,
 })
 
 const register = async (req, res) => {
   try {
-    console.log(req.body)
+   console.log(req.body)
     const result = await serviceAuth.register(req.body)
     console.log(result)
     req.flash('success_msg', 'registered')
     res.redirect('/')
   } catch (error) {
-    console.log(error)
-    res.render('/register')
+    res.redirect('/register')
   }
 }
 const logout = async (req, res, next) => {

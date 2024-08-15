@@ -52,6 +52,8 @@ app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg')
   res.locals.error_msg = req.flash('error_msg')
   res.locals.error = req.flash('error')
+  res.locals.user = req.user
+  res.locals.status = req.isAuthenticated()
   next()
 })
 //favicon
@@ -61,7 +63,7 @@ app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')))
 app.use(indexRoutes)
 
 app.use('*', (req, res) => {
-  res.send('not search')
+  res.render('error_404')
 })
 app.listen(PORT, () => {
   console.log(`The server is running on the port ${PORT}`)

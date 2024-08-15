@@ -1,21 +1,22 @@
-const { body } = require('express-validator')
-const { validateResult } = require('../utils/validate.util.js')
+const { body, validationResult } = require('express-validator')
 
 const userValidator = [
   body('dni')
-    .exists()
-    .isNumeric()
-    .not()
-    .isEmpty()
-    .withMessage('the DNI is required'),
+  .exists()
+  .isNumeric()
+  .withMessage('D.N.I is required'),
   body('password')
     .exists()
     .isLength({ min: 8 })
-    .not()
-    .isEmpty()
-    .withMessage('the password not secure'),
+    .withMessage('Password should be at least 8 chars'),
   (req, res, next) => {
-    validateResult(req, res, next)
+    try {
+      validationResult(req).throw()
+      return next()
+    } catch (err) {
+      let errors = err.formatWith(error => error.msg).mapped()
+      res.render('register', {errors})
+    }
   },
 ]
 module.exports = { userValidator }

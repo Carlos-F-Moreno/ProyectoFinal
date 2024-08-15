@@ -1,6 +1,6 @@
 const Course = require('../models/course.model.js')
 const Student = require('../models/student.model.js')
-const parserMongoObjects = require('../utils/parser_mongo_objects.js')
+const {parserMongoObjects} = require('../utils/index.js')
 
 const getCoursesDivisions = async () => {
   try {

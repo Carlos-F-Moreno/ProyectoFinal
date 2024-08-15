@@ -1,5 +1,5 @@
 const User = require('../models/user.model')
-const { encrypt } = require('../utils/bcrypt_text.js')
+const { encrypt } = require('../utils/index.js')
 
 async function register(info) {
   try {

@@ -7,12 +7,10 @@ passport.use(
   new LocalStrategy(
     { usernameField: 'dni', passwordField: 'password' },
     async (dni, password, done) => {
-      console.log(dni, password)
       const user = await User.findOne({ dni })
-      console.log(user)
-      if (!user) return done(null, false, { message: 'not user found' })
-      const equal = compare(password, user.password)
-      if (!equal) return done(null, false, { message: 'password incorrect' })
+      if (!user) return done(null, false, { message: ' user or password incorrect' })
+      const equal =  await compare(password, user.password)
+      if (!equal) return done(null, false, { message: ' user or password incorrect' })
       return done(null, user)
     }
   )
